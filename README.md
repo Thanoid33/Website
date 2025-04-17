@@ -2,6 +2,7 @@
 
 ## TODO
 
+- [ ] Sunucu için ayrı ssh credentialları oluştur
 - [ ] ci/cd scriptlerini hazırla
 - [ ] websitesini hazırla
 - [ ] Güzel bir renk paleti seçmek lazım
