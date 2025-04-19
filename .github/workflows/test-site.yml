@@ -2,7 +2,7 @@ name: Test Static Site
 
 on:
   push:
-    branches: [main, test]
+    branches: [test]
   pull_request:
     branches: [main, test]
 
