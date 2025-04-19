@@ -1,5 +1,6 @@
 # This is a landing page for IslamGPT
 
+`Use prettier for best experience`
 ## TODO
 
 - [ ] Sunucu için ayrı ssh credentialları oluştur
