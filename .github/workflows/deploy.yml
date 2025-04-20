@@ -16,4 +16,4 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_KEY }}
-          script: cd /website/main-page && cd .. && docker compose up --build -d
+          script: cd /website/main-page && git pull && cd .. && docker compose up --build -d
