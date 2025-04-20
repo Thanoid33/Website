@@ -1,0 +1,128 @@
+/* Basic Reset & Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+    color: #f0f0f0; /* Light text color for dark background */
+    line-height: 1.6;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* Animated Gradient Background */
+    background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #1c1e38);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    overflow: hidden; /* Hide scrollbars if content overflows slightly */
+}
+
+/* Keyframes for the background animation */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Content Container */
+.container {
+    max-width: 600px;
+    padding: 40px 20px;
+    background-color: rgba(0, 0, 0, 0.3); /* Slightly transparent background for contrast */
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px); /* Frosted glass effect (optional, might impact performance slightly) */
+    -webkit-backdrop-filter: blur(5px); /* Safari support */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+}
+
+/* Icon Styling */
+.construction-icon {
+    font-size: 4rem; /* Large icon */
+    color: #ffc107; /* Accent color (like construction yellow) */
+    margin-bottom: 20px;
+    display: inline-block;
+    animation: pulse 2s infinite ease-in-out; /* Subtle pulsing animation */
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.8; }
+}
+
+/* Heading Styling */
+h1 {
+    font-size: 2.8rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+    color: #fff; /* Brighter white for heading */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+}
+
+/* Paragraph Styling */
+p {
+    font-size: 1.1rem;
+    font-weight: 300;
+    margin-bottom: 25px;
+    opacity: 0.9; /* Slightly less prominent */
+}
+
+/* Fake Progress Bar */
+.progress-bar {
+    width: 80%;
+    height: 15px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    margin: 20px auto;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.progress {
+    width: 60%; /* Adjust this to show 'progress' */
+    height: 100%;
+    background: linear-gradient(90deg, #ffc107, #ff9800); /* Yellow/Orange gradient */
+    border-radius: 10px 0 0 10px;
+    animation: progressBarAnim 2s ease-out forwards; /* Animate width on load */
+}
+
+/* Progress bar width animation (optional) */
+@keyframes progressBarAnim {
+    from { width: 0%; }
+    to { width: 60%; } /* Target width */
+}
+
+.eta {
+    font-size: 0.9rem;
+    font-style: italic;
+    opacity: 0.7;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2.2rem;
+    }
+    p {
+        font-size: 1rem;
+    }
+    .construction-icon {
+        font-size: 3rem;
+    }
+    .container {
+        margin: 20px;
+        padding: 30px 15px;
+    }
+    .progress-bar {
+        width: 90%;
+    }
+}
