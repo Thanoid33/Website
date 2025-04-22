@@ -1,7 +1,6 @@
 # İmamGPT Landing Page
 
-![İmamGPT Logo Placeholder](images/logo.png) 
-
+<img src="/images/logo.png" alt="İmamGPT Logo" width="256" height="256" >
 This repository contains the source code for the static landing page of İmamGPT, a conceptual SaaS application designed for AI chat with a foundation in Islamic faith and values.
 
 ## ✨ About İmamGPT (The Concept)
