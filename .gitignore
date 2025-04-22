@@ -1,2 +1,4 @@
 # Ignore enviroment variables
 .env
+github_creds
+github_creds.pub
