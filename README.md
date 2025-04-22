@@ -24,7 +24,7 @@ This is a static website. No build process is required.
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/your-username/imamgpt-landing-page.git
+    git clone https://github.com/Thanoid33/Website.git
     cd imamgpt-landing-page
     ```
 2.  **Open `index.html`:** Simply open the `index.html` file in your web browser to view the page locally.
