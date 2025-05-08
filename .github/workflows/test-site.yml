@@ -1,0 +1,41 @@
+name: Test Static Site
+
+on:
+  push:
+    branches: [main, test]
+  pull_request:
+    branches: [main, test]
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+  html-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install htmlhint
+        run: npm install -g htmlhint
+      - name: Run htmlhint
+        run: htmlhint index.html
+
+  html-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install html-validate
+        run: npm install -g html-validate
+      - name: Validate HTML
+        run: html-validate -p prettier index.html
+
+  link-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install linkinator
+        run: npm install -g linkinator
+      - name: Check for broken links
+        run: linkinator index.html --markdown

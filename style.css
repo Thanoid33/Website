@@ -1,0 +1,522 @@
+/* --- Global Styles & Variables --- */
+:root {
+    --primary-color: #005a8d; /* A professional blue */
+    --secondary-color: #00a8e8; /* A brighter blue accent */
+    --accent-color: #ffc107; /* Optional accent (e.g., gold/yellow) */
+    --text-color: #333;
+    --light-text-color: #f8f9fa;
+    --bg-color: #ffffff;
+    --light-gray-bg: #f8f9fa;
+    --dark-gray-bg: #e9ecef;
+    --border-color: #dee2e6;
+    --heading-font: 'Poppins', sans-serif;
+    --body-font: 'Poppins', sans-serif;
+    --navbar-height: 70px; /* Adjust as needed */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--navbar-height); /* Offset for fixed navbar */
+}
+
+body {
+    font-family: var(--body-font);
+    line-height: 1.7;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    font-size: 16px; /* Base font size */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading-font);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+    color: var(--primary-color); /* Headings use primary color */
+}
+
+h1 { font-size: 2.8rem; font-weight: 700; }
+h2 { font-size: 2.2rem; text-align: center; margin-bottom: 2.5rem; }
+h3 { font-size: 1.5rem; font-weight: 600; color: var(--secondary-color); } /* Feature/Card titles */
+
+p {
+    margin-bottom: 1rem;
+}
+
+a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--primary-color);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+section {
+    padding: 80px 0;
+}
+
+/* Make alternating sections slightly different background */
+section:nth-of-type(even) {
+     background-color: var(--light-gray-bg);
+}
+
+.icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+
+/* --- Buttons --- */
+.cta-button {
+    display: inline-block;
+    padding: 12px 28px;
+    font-family: var(--heading-font);
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    margin: 5px; /* Add some spacing between buttons */
+}
+
+.cta-button.primary {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    border-color: var(--primary-color);
+}
+.cta-button.primary:hover {
+    background-color: #004a75; /* Darker shade of primary */
+    border-color: #004a75;
+    color: var(--light-text-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cta-button.secondary {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+.cta-button.secondary:hover {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+     transform: translateY(-2px);
+}
+
+.cta-button.nav-cta {
+    background-color: var(--secondary-color);
+    color: var(--light-text-color);
+    border-color: var(--secondary-color);
+    padding: 8px 20px; /* Slightly smaller for nav */
+}
+
+.cta-button.nav-cta:hover {
+    background-color: #0095cc; /* Slightly darker secondary */
+    border-color: #0095cc;
+    color: var(--light-text-color);
+}
+
+.cta-button.large {
+    padding: 15px 35px;
+    font-size: 1.1rem;
+}
+
+/* --- Navigation Bar --- */
+.navbar {
+    background-color: var(--bg-color);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    position: sticky; /* Fixed navbar */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    height: var(--navbar-height);
+    display: flex; /* Use flex directly on navbar for vertical centering */
+    align-items: center;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* Ensure container takes full width */
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+.logo:hover {
+    color: var(--primary-color); /* Keep color on hover */
+}
+
+.navbar nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar nav ul li {
+    margin-left: 25px;
+}
+
+.navbar nav ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 5px 0;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.navbar nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--secondary-color);
+    transition: width 0.3s ease;
+}
+
+.navbar nav ul li a:hover,
+.navbar nav ul li a.active { /* Add active class via JS if needed */
+    color: var(--secondary-color);
+}
+.navbar nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* Mobile Menu Button */
+.mobile-menu-button {
+    display: none; /* Hidden by default */
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    /* background: linear-gradient(rgba(0, 90, 141, 0.8), rgba(0, 168, 232, 0.7)), url('your-background-image.jpg') no-repeat center center/cover; */
+    background-color: var(--primary-color); /* Fallback solid color */
+    color: var(--light-text-color);
+    min-height: calc(90vh - var(--navbar-height)); /* Adjust height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 100px 0; /* More padding */
+}
+
+.hero-section h1 {
+    color: var(--light-text-color);
+    margin-bottom: 1.5rem;
+    font-size: 3.2rem; /* Larger hero headline */
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto 2.5rem auto;
+    font-weight: 300;
+}
+
+.hero-buttons {
+    margin-top: 2rem;
+}
+/* Override button colors for hero */
+.hero-section .cta-button.primary {
+    background-color: var(--light-text-color);
+    color: var(--primary-color);
+    border-color: var(--light-text-color);
+}
+.hero-section .cta-button.primary:hover {
+     background-color: var(--dark-gray-bg);
+     border-color: var(--dark-gray-bg);
+     color: var(--primary-color);
+}
+.hero-section .cta-button.secondary {
+    background-color: transparent;
+    color: var(--light-text-color);
+    border: 2px solid var(--light-text-color);
+}
+.hero-section .cta-button.secondary:hover {
+    background-color: var(--light-text-color);
+    color: var(--primary-color);
+}
+
+
+/* --- Why ImamGPT Section --- */
+.why-section {
+    background-color: var(--bg-color);
+}
+
+.problem-solution-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    align-items: start; /* Align items to the top */
+}
+
+.problem-card, .solution-card {
+    padding: 30px;
+    border-radius: 8px;
+    background-color: var(--bg-color);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+    text-align: center;
+}
+
+.problem-card h3 { color: #dc3545; } /* Reddish for problem */
+.solution-card h3 { color: #28a745; } /* Greenish for solution */
+.problem-card .icon { color: #dc3545; }
+.solution-card .icon { color: #28a745; }
+
+/* --- Features Section --- */
+.features-section {
+    background-color: var(--light-gray-bg);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.feature-item {
+    background-color: var(--bg-color);
+    padding: 35px 30px;
+    text-align: center;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 90, 141, 0.1);
+}
+
+.feature-item h3 {
+    margin-top: 0.5rem; /* Less space after icon */
+    color: var(--primary-color); /* Use primary for feature titles */
+}
+
+.feature-item .icon {
+    color: var(--secondary-color); /* Use secondary for feature icons */
+}
+
+/* --- Use Cases Section --- */
+.use-cases-section {
+     background-color: var(--bg-color);
+}
+
+.use-cases-grid {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+     gap: 30px;
+}
+
+.use-case-card {
+    background-color: var(--light-gray-bg);
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    border-left: 5px solid var(--secondary-color); /* Accent border */
+}
+.use-case-card h3 {
+     color: var(--primary-color);
+}
+.use-case-card .icon {
+    color: var(--secondary-color);
+    font-size: 2rem;
+}
+
+/* --- Final CTA Section --- */
+.final-cta-section {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    text-align: center;
+}
+
+.final-cta-section h2 {
+    color: var(--light-text-color);
+    margin-bottom: 1.5rem;
+}
+
+.final-cta-section p {
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+    font-size: 1.1rem;
+}
+
+.final-cta-section .cta-button.primary {
+     background-color: var(--light-text-color);
+     color: var(--primary-color);
+     border-color: var(--light-text-color);
+}
+.final-cta-section .cta-button.primary:hover {
+      background-color: var(--dark-gray-bg);
+      border-color: var(--dark-gray-bg);
+      color: var(--primary-color);
+}
+
+/* --- Footer --- */
+.footer {
+    background-color: #222; /* Dark footer */
+    color: #ccc;
+    padding: 40px 0;
+    font-size: 0.9rem;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.footer p {
+    margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+    color: #ccc;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--secondary-color);
+}
+
+.social-media {
+    margin-top: 1rem;
+}
+
+.social-media a {
+    color: #ccc;
+    font-size: 1.4rem;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+.social-media a:hover {
+    color: var(--secondary-color);
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 992px) {
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    .hero-section h1 { font-size: 2.8rem; }
+    .hero-section p { font-size: 1.1rem; }
+    .features-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+}
+
+@media (max-width: 768px) {
+    :root { --navbar-height: 60px; } /* Adjust navbar height */
+
+    .nav-container {
+        position: relative; /* Needed for absolute positioning of mobile menu */
+    }
+
+    .navbar nav {
+        display: none; /* Hide nav links by default */
+        position: absolute;
+        top: var(--navbar-height); /* Position below navbar */
+        left: 0;
+        width: 100%;
+        background-color: var(--bg-color);
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        flex-direction: column;
+        padding: 10px 0;
+        border-top: 1px solid var(--border-color);
+    }
+
+    .navbar nav.active {
+        display: flex; /* Show when active */
+    }
+
+    .navbar nav ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .navbar nav ul li {
+        margin: 0;
+        text-align: center;
+    }
+
+    .navbar nav ul li a {
+        display: block; /* Make links full width */
+        padding: 12px 20px;
+        border-bottom: 1px solid var(--light-gray-bg);
+    }
+     .navbar nav ul li a::after {
+        display: none; /* Hide underline effect on mobile */
+    }
+
+    .mobile-menu-button {
+        display: block; /* Show burger button */
+    }
+
+    .cta-button.nav-cta {
+       display: none; /* Hide desktop nav button on mobile */
+    }
+
+    .hero-section { min-height: 70vh; padding: 60px 0; }
+    .hero-section h1 { font-size: 2.2rem; }
+    .hero-section p { font-size: 1rem; }
+
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.8rem; margin-bottom: 2rem;}
+
+    section { padding: 60px 0; }
+
+    .problem-solution-grid { grid-template-columns: 1fr; } /* Stack columns */
+    .features-grid { grid-template-columns: 1fr; }
+    .use-cases-grid { grid-template-columns: 1fr; }
+
+     .footer-content {
+        flex-direction: column;
+    }
+    .footer-links {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+     .hero-section { padding: 40px 0; }
+     .hero-section h1 { font-size: 1.8rem; }
+     .hero-section p { font-size: 0.9rem; }
+     .cta-button { padding: 10px 20px; font-size: 0.9rem;}
+     .cta-button.large { padding: 12px 25px; font-size: 1rem; }
+}
